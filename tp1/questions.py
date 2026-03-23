@@ -1,22 +1,39 @@
 import random
 
-words = [
-    "python",
-    "programa",
-    "variable",
-    "funcion",
-    "bucle",
-    "cadena",
-    "entero",
-    "lista",
-]
-
-word = random.choice(words)
-guessed = []
-attempts = 6
-puntaje = 0  
+categorias = {
+    "programacion": [
+        "python",
+        "programa",
+        "variable",
+        "funcion",
+        "bucle"
+    ],
+    "tipos de datos": [
+        "cadena",
+        "entero",
+        "lista"
+    ]
+}
 
 print("¡Bienvenido al Ahorcado!")
+print()
+print("Categorías disponibles:")
+
+for categoria in categorias:
+    print("-", categoria)
+
+print()
+opcion = input("Elegí una categoría: ")
+
+while opcion not in categorias:
+    print("Categoría no válida")
+    opcion = input("Elegí una categoría: ")
+
+word = random.choice(categorias[opcion])
+guessed = []
+attempts = 6
+puntaje = 0
+
 print()
 
 while attempts > 0:
@@ -32,7 +49,7 @@ while attempts > 0:
 
     if "_" not in progress:
         print("¡Ganaste!")
-        puntaje += 6  
+        puntaje += 6
         break
 
     print(f"Intentos restantes: {attempts}")
@@ -50,13 +67,13 @@ while attempts > 0:
     else:
         guessed.append(letter)
         attempts -= 1
-        puntaje -= 1  
+        puntaje -= 1
         print("Esa letra no está en la palabra.")
 
     print()
 
 else:
     print(f"¡Perdiste! La palabra era: {word}")
-    puntaje = 0  
+    puntaje = 0
 
-print(f"Puntaje final: {puntaje}")  
+print(f"Puntaje final: {puntaje}")
