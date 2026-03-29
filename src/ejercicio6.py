@@ -28,7 +28,7 @@ def contar_frecuencias(hashtags):
 
 def obtener_trending(frecuencias):
     trending = {}
-    for hashtag, cantidad in frecuencias.items(): # recorro el diccionario de frecuencias
+    for hashtag, cantidad in frecuencias.items(): #recorro el diccionario de frecuencias
         if cantidad > 1:
             trending[hashtag] = cantidad
     return trending     # devuelve un diccionario con los hashtags que tienen una frecuencia mayor a 1
